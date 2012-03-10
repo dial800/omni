@@ -33,9 +33,9 @@ We know. You have two days to integrate with us. Don't worry, it's easy. We're h
 2. Generate Payload
 3. Submit
 
-## REST Interface
+## Reference
 
-### POST
+### `POST /calls`
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -52,7 +52,7 @@ We know. You have two days to integrate with us. Don't worry, it's easy. We're h
 </Call>
 ```
 
-### PUT
+### `PUT /calls`
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
