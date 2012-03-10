@@ -1,39 +1,41 @@
-![Documentation](http://docs.dial800.com/images/dial800.png)
+![Documentation](http://docs.dial800.com/images/roundtrip.png)
 
 We know. You have two days to integrate with us. Don't worry, it's easy. We're here to help.
 
-## How to submit data
+# How to submit data
 
 * [if I am using PHP](#using-php)?
 * [or C Sharp?](#using-c-sharp)
 * [or Python?](#using-python)
 * [or Ruby?](#using-ruby)
 
-### Using PHP
+## Using PHP
 
-### Using C Sharp
+## Using C Sharp
 
-### Using Python
+## Using Python
 
-### Using Ruby
+## Using Ruby
 
-## REST Interface
+# REST Interface
 
-### Basic Authentication
+## Basic Authentication
 
-### Payload
+## Payload
 
-## Working with Media Agencies
+# Working with Media Agencies
 
-### Timing
+## Timing
 
-#### MercuryMedia
+## Current Integrations
 
-##### Mercury Long Form
+### MercuryMedia
 
-##### Mercury Short Form
+### Mercury Long Form
 
-#### Euro
+### Mercury Short Form
+
+### Euro
 
 This document provides the specification of Dial800’s RoundTrip v2.0 Sales Data Submission service, along with a description & examples illustrating how to properly use this service.
 RoundTrip v2.0 (RT2) Sales Data Submission Service
