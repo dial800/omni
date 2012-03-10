@@ -2,32 +2,33 @@
 
 We know. You have two days to integrate with us. Don't worry, it's easy. We're here to help.
 
-# How to submit data
+## How to submit data
 
 * [if I am using PHP](#using-php)?
 * [or C Sharp?](#using-c-sharp)
 * [or Python?](#using-python)
 * [or Ruby?](#using-ruby)
 
-## Using PHP
+### Using PHP
 
-## Using C Sharp
+### Using C Sharp
 
-## Using Python
+### Using Python
 
-## Using Ruby
+### Using Ruby
 
-# REST Interface
+## REST Interface
 
-## Basic Authentication
+### Basic Authentication
 
-## Payload
+### Telephone Number Formatting
 
-# Working with Media Agencies
+All Telephone numbers within this API will be formatted according to http://tools.ietf.org/html/rfc3966. However, at this time, Dial800 will only be supporting us-based (NANPA) telephone number formats; International number formats will be supported at a future time.
 
-## Timing
+### Payload
 
-## Current Integrations
+## Working with Media Agencies
+
 
 ### MercuryMedia
 
@@ -62,9 +63,7 @@ The production endpoint where these services will be available at is:
 RT2 data submissions are performed on a synchronous basis, and will attempt to match the data submitted  to a call in the CallView databases, and will return an HTTP status code as part of the response indicating success or failure of the matching & data posting process.
 Consequently, call sales data submitted via the RT2 API must be submitted AFTER the call is completed and the basic call data has been inserted into the CallView databases. In many cases, the call data will be available within CallView 5-10 seconds after the call is terminated. In some cases, there may be a delay as long as 10-15 minutes before the call data becomes available.
 Any party attempting to submit RT2 data via this API must implement their submission code to accommodate the possibility that the target call data is not yet available within the system, detecting potential `Call Not Found` return codes, and waiting/delaying/queuing the RT2 API request for retry at a later time.
-Telephone Number Formatting
 
-All Telephone numbers within this API will be formatted according to http://tools.ietf.org/html/rfc3966. However, at this time, Dial800 will only be supporting us-based (NANPA) telephone number formats; International number formats will be supported at a future time.
 RT2: Submit Call Sales Data
 
 Resource URI
