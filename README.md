@@ -1,6 +1,21 @@
 ![Documentation](http://docs.dial800.com/images/dial800.png)
 
-## Summary
+We know. You have two days to integrate with us. Don't worry, it's easy. We're here to help.
+
+## How do I submit data to Dial800?
+
+* [if I am using PHP](#using-php)?
+* [or C#?](#using-c-sharp)
+* [or Python?](#using-python)
+* [or Ruby?](#rusing-ruby)
+
+## Using PHP
+
+## Using C#
+
+## Using Python
+
+## Using Ruby
 
 This document provides the specification of Dial800’s RoundTrip v2.0 Sales Data Submission service, along with a description & examples illustrating how to properly use this service.
 RoundTrip v2.0 (RT2) Sales Data Submission Service
