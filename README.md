@@ -59,14 +59,16 @@ Content-Type: application/roundtrip.sales
 </Call>
 ```
 
-#### Response (Call successfully matched)
+#### Response
+
+Call successfully matched.
 
 ```xml
 200 OK
 <ID>XDhshURwv60Q2nRyN4cnGVCmMB1cP</ID>
 ```
 
-#### Response (No match for the call)
+No match for the call.
 
 ```
 404 Not Found
@@ -92,14 +94,16 @@ Content-Type: application/roundtrip.sales
 </Call>
 ```
 
-#### Response (Call successfully matched)
+#### Response
+
+Call successfully matched.
 
 ```xml
 200 OK
 <ID>XDhshURwv60Q2nRyN4cnGVCmMB1cP</ID>
 ```
 
-#### Response (No match for the call)
+No match for the call.
 
 ```
 404 Not Found
