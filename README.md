@@ -35,6 +35,8 @@ We know. You have two days to integrate with us. Don't worry, it's easy. We're h
 
 ## Reference
 
+### Authentication
+
 ### POST
 
 #### Request
@@ -109,22 +111,19 @@ No match for the call.
 404 Not Found
 ```
 
-### Basic Authentication
-
-### Phone formatting
-
-All Telephone numbers within this API will be formatted according to http://tools.ietf.org/html/rfc3966. However, at this time, Dial800 will only be supporting us-based (NANPA) telephone number formats; International number formats will be supported at a future time.
-
-### Payload
-
 ## Working with Media Agencies
-
 
 ### MercuryMedia
 
-### Mercury Long Form
+[MercuryMedia] www.mercurymedia.com uses two slightly different formats, [MLF](mercury-long-form) and [MSF](mercury-short-form).
 
-### Mercury Short Form
+#### Mercury Long Form
+
+
+
+#### Mercury Short Form
+
+
 
 ### Euro
 
