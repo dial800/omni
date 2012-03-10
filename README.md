@@ -54,6 +54,7 @@ We know. You have two days to integrate with us. Don't worry, it's easy. We're h
 
 ### PUT
 
+```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <Call xmlns="http://www.dial800.com/roundtrip/2011-07-15"
       xmlns:rs="http://www.dial800.com/roundtrip-sales/2011-08-04">      
@@ -64,6 +65,7 @@ We know. You have two days to integrate with us. Don't worry, it's easy. We're h
         <rs:Item price="59.72">ERK 3 PAY</rs:Item>
     </rs:Order>
 </Call>
+```
 
 ### Basic Authentication
 
