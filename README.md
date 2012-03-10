@@ -2,10 +2,10 @@
 
 We know. You have two days to integrate with us. Don't worry, it's easy. We're here to help.
 
-## How to submit data to [Dial800](http://www.dial800.com)
+## How to submit data to Dial800
 
 * [if I am using PHP](#using-php)?
-* [or C#?](#using-c)
+* [or C#?](#using-c-35)
 * [or Python?](#using-python)
 * [or Ruby?](#using-ruby)
 
