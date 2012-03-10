@@ -115,7 +115,7 @@ No match for the call.
 
 ### MercuryMedia
 
-[MercuryMedia] www.mercurymedia.com uses two slightly different formats, [MLF](mercury-long-form) and [MSF](mercury-short-form).
+[MercuryMedia](www.mercurymedia.com) uses two slightly different formats, [MLF](#mercury-long-form) and [MSF](#mercury-short-form).
 
 #### Mercury Long Form
 
