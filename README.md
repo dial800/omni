@@ -5,13 +5,13 @@ We know. You have two days to integrate with us. Don't worry, it's easy. We're h
 ## How to submit data to [Dial800](http://www.dial800.com)
 
 * [if I am using PHP](#using-php)?
-* [or C#?](#using-c)
+* [or C &#92;?](#using-c-sharp)
 * [or Python?](#using-python)
 * [or Ruby?](#using-ruby)
 
 ### Using PHP
 
-### Using C#
+### Using C &#23;
 
 ### Using Python
 
