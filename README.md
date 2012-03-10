@@ -11,17 +11,63 @@ We know. You have two days to integrate with us. Don't worry, it's easy. We're h
 
 ### Using PHP
 
+1. Contact our team for credentials.
+2. Generate Payload
+3. Submit
+
 ### Using C Sharp
+
+1. Contact our team for credentials.
+2. Generate Payload
+3. Submit
 
 ### Using Python
 
+1. Contact our team for credentials.
+2. Generate Payload
+3. Submit
+
 ### Using Ruby
+
+1. Contact our team for credentials.
+2. Generate Payload
+3. Submit
 
 ## REST Interface
 
+### POST
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<Call xmlns="http://www.dial800.com/roundtrip/2011-07-15"
+      xmlns:rs="http://www.dial800.com/roundtrip-sales/2011-08-04">      
+    <ANI>tel:3105555555</ANI>
+    <Target>tel:3109999999</Target>
+    <CallStart>2011-07-15T01:02:03-08:00</CallStart>
+    <rs:Order payment="amex">
+        <rs:Item price="100.00">OVEN</rs:Item>
+        <rs:Item price="100.00">SPK</rs:Item>
+        <rs:Item price="59.72">ERK 3 PAY</rs:Item>
+    </rs:Order>
+</Call>
+```
+
+### PUT
+
+<?xml version="1.0" encoding="utf-8" ?>
+<Call xmlns="http://www.dial800.com/roundtrip/2011-07-15"
+      xmlns:rs="http://www.dial800.com/roundtrip-sales/2011-08-04">      
+    <ID>12345678990</ID>
+    <rs:Order payment="amex">
+        <rs:Item price="100.00">OVEN</rs:Item>
+        <rs:Item price="100.00">SPK</rs:Item>
+        <rs:Item price="59.72">ERK 3 PAY</rs:Item>
+    </rs:Order>
+</Call>
+
 ### Basic Authentication
 
-### Telephone Number Formatting
+### Phone formatting
 
 All Telephone numbers within this API will be formatted according to http://tools.ietf.org/html/rfc3966. However, at this time, Dial800 will only be supporting us-based (NANPA) telephone number formats; International number formats will be supported at a future time.
 
