@@ -12,10 +12,14 @@ if module.id == "."
   Server.on "loaded", ->
     console.log "Server is READY!"
     if process.env.NODE_ENV == "development"
-      growl = require("growl").notify
-      growl "Restarted", title: "DocumentUp"
-  
-  Server.listen 8080
+      # growl = require("growl").notify
+      # growl "Restarted", title: "docs.dial800.com"
+      # Jim really needs to buy me a Mac :|
+      console.log("Leo does not have a Mac. Nothing to see here. Move along.")
+ 
+  port = process.env.PORT || 8080
+
+  Server.listen port
   return
 
 require("sugar")

@@ -3,10 +3,10 @@
   "name": "DocumentUp",
   "description": "Pretty documentation generator for Github projects with proper Readme.",
   "version": "0.1.1",
-  "homepage": "http://documentup.com",
+  "homepage": "http://docs.dial800.com",
   "repository": {
     "type": "git",
-    "url": "git://github.com/jeromegn/documentup.git"
+    "url": "git://github.com/dial800/docs.dial800.com.git"
   },
   "engines": {
     "node": "~0.6.8"

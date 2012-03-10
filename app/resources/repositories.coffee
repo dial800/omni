@@ -208,8 +208,8 @@ handleRepository = (req, res, next, callback)->
   return next() if req.params.username == "stylesheets" || req.params.username == "images"
 
   # If the user requested "/" then he wants the DocumentUp repo
-  req.params.username ||= "jeromegn"
-  req.params.repository ||= "documentup"
+  req.params.username ||= "dial800"
+  req.params.repository ||= "docs.dial800.com"
 
   return res.redirect("/", 301) if req.params.username == "username" && req.params.repository == "repository"
 
