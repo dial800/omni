@@ -2,16 +2,16 @@
 
 We know. You have two days to integrate with us. Don't worry, it's easy. We're here to help.
 
-## How to submit data to Dial800
+## How to submit data
 
 * [if I am using PHP](#using-php)?
-* [or C#?](#using-c-35)
+* [or C Sharp?](#using-c-sharp)
 * [or Python?](#using-python)
 * [or Ruby?](#using-ruby)
 
 ### Using PHP
 
-### Using C&#35;
+### Using C Sharp
 
 ### Using Python
 
