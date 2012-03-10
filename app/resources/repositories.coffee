@@ -253,7 +253,7 @@ renderStaticUnlessJSONP = (path)->
       Express.static(path)(req, res, next)
 
 
-Server.get "/", Express.static("#{__dirname}/../../public/compiled/jeromegn/documentup")
+Server.get "/", Express.static("#{__dirname}/../../public/compiled/dial800/docs.dial800.com")
 Server.get "/", (req, res, next)->
   handleRepository req, res, next, (err, html)->
     sendHtml(res, html)

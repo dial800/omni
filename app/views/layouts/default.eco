@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= @config.name || @repository.split("/")[1] %></title>
     
-    <link rel="stylesheet" type="text/css" href="<% if @env == "production": %>http://documentup.com<% end %>/stylesheets/screen.css">
+    <link rel="stylesheet" type="text/css" href="<% if @env == "production": %>http://docs.dial800.com<% end %>/stylesheets/screen.css">
     
     <% if @config.color: %>
       <style type="text/css">
