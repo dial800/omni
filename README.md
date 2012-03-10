@@ -7,11 +7,11 @@ We know. You have two days to integrate with us. Don't worry, it's easy. We're h
 * [if I am using PHP](#using-php)?
 * [or C#?](#using-c-sharp)
 * [or Python?](#using-python)
-* [or Ruby?](#rusing-ruby)
+* [or Ruby?](#using-ruby)
 
 ## Using PHP
 
-## Using C#
+## Using "C#"
 
 ## Using Python
 
