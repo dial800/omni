@@ -35,9 +35,9 @@ We know. You have two days to integrate with us. Don't worry, it's easy. We're h
 
 ## Reference
 
-### calls
+### POST
 
-#### POST
+#### Request
 
 ```
 POST /calls
@@ -59,7 +59,20 @@ Content-Type: application/roundtrip.sales
 </Call>
 ```
 
-#### PUT
+#### Response (Call successfully matched)
+
+```xml
+200 OK
+<ID>XDhshURwv60Q2nRyN4cnGVCmMB1cP</ID>
+```
+
+#### Response (No match for the call)
+
+```
+404 Not Found
+```
+
+### PUT
 
 ```
 PUT /calls
@@ -77,6 +90,19 @@ Content-Type: application/roundtrip.sales
         <rs:Item price="59.72">ERK 3 PAY</rs:Item>
     </rs:Order>
 </Call>
+```
+
+#### Response (Call successfully matched)
+
+```xml
+200 OK
+<ID>XDhshURwv60Q2nRyN4cnGVCmMB1cP</ID>
+```
+
+#### Response (No match for the call)
+
+```
+404 Not Found
 ```
 
 ### Basic Authentication
