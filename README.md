@@ -2,20 +2,36 @@
 
 We know. You have two days to integrate with us. Don't worry, it's easy. We're here to help.
 
-## How do I submit data to Dial800?
+## How to submit data to [Dial800](http://www.dial800.com)
 
 * [if I am using PHP](#using-php)?
-* [or C#?](#using-c-sharp)
+* [or C#?](#using-c)
 * [or Python?](#using-python)
 * [or Ruby?](#using-ruby)
 
-## Using PHP
+### Using PHP
 
-## Using "C#"
+### Using C#
 
-## Using Python
+### Using Python
 
-## Using Ruby
+### Using Ruby
+
+## REST Interface
+
+### Basic Authentication
+
+### Payload
+
+## Working with Media Agencies
+
+### MercuryMedia
+
+#### Mercury Long Form
+
+#### Mercury Short Form
+
+### Euro
 
 This document provides the specification of Dial800’s RoundTrip v2.0 Sales Data Submission service, along with a description & examples illustrating how to properly use this service.
 RoundTrip v2.0 (RT2) Sales Data Submission Service
