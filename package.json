@@ -17,6 +17,7 @@
   "main": "server.coffee",
   "filename": "documentup.min.js",
   "dependencies": {
+    "async":         "0.1.18",
     "express":       "2.5.1",
     "stylus":        "~0.19.2",
     "nib":           "~0.3.0",
