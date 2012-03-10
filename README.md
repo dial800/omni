@@ -37,6 +37,8 @@ We know. You have two days to integrate with us. Don't worry, it's easy. We're h
 
 ### calls
 
+#### POST
+
 ```
 POST /calls
 Content-Type: application/roundtrip.sales
@@ -56,6 +58,8 @@ Content-Type: application/roundtrip.sales
     </rs:Order>
 </Call>
 ```
+
+#### PUT
 
 ```
 PUT /calls
