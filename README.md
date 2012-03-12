@@ -1,4 +1,4 @@
-![Documentation](http://docs.dial800.com/images/roundtrip.png)
+![Documentation](/images/roundtrip.png)
 
 We know. You have two days to integrate with us. Don't worry, it's easy. We're here to help.
 
