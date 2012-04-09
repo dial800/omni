@@ -19,63 +19,29 @@ We know. You have two days to integrate with us. Don't worry, it's easy. We're h
 $request = new HTTP_Request2('http://routing.dial800.com/roundtrip');
 $request->setMethod(HTTP_Request2::METHOD_POST)
     ->setAuth('user','password', HTTP_Request2::AUTH_BASIC)
-    ->setHeader('Content-type: application/mercury.shortform')
+    ->setHeader('Content-type: application/omni')
     ->setBody(
         "<?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n" .
         "<Call xmlns=\"http://www.dial800.com/roundtrip/2011-07-15\r\n" .
-        "      xmlns:msf=\"http://www.mercurymedia.com/shortform/2011-07-15\">" .
+        "      xmlns:omni=\"http://www.omnidirect.com/2012-04-01\">\r\n" .
         "   <ANI>tel:3105555555</ANI>\r\n" .
         "   <Target>tel:3109999999</Target>\r\n" . 
         "   <CallStart>2011-07-15T01:02:03-08:00</CallStart>\r\n" .
-        "   <msf:ProductCode>PHD4</msf:ProductCode>\r\n" .
-        "   <msf:MediaSource>KNBC</msf:MediaSource>\r\n" .
-        "   <msf:CallerFirstName>John</msf:CallerFirstName>\r\n" .
-        "   <msf:CallerMiddleName>Jerry</msf:CallerMiddleName>\r\n" .
-        "   <msf:CallerLastName>Smith</msf:CallerLastName>\r\n" .
-        "   <msf:CallerCity>Los Angeles</msf:CallerCity>\r\n" .
-        "   <msf:CallerState>CA</msf:CallerState>\r\n" .
-        "   <msf:CallerZipCode>90210</msf:CallerZipCode>\r\n" .
-        "   <msf:OtherFirstName />\r\n" .
-        "   <msf:OtherMiddleInitial />\r\n" .
-        "   <msf:OtherLastName />\r\n" .
-        "   <msf:OtherCity />\r\n" .
-        "   <msf:OtherState />\r\n" .
-        "   <msf:OtherZip />\r\n" .
-        "   <msf:OtherAreaCode />\r\n" .
-        "   <msf:OtherPhone />\r\n" .
-        "   <msf:ScriptQ1-1 />\r\n" .
-        "   <msf:Gender />\r\n" .
-        "   <msf:ScriptQ1-3 />\r\n" .
-        "   <msf:ScriptQ1-4 />\r\n" .
-        "   <msf:InqReason />\r\n" .
-        "   <msf:CallCode>11</msf:CallCode>\r\n" .
-        "   <msf:ScriptQ10-2 />\r\n" .
-        "   <msf:ScriptQ10-3 />\r\n" .
-        "   <msf:ScriptQ10-4 />\r\n" .
-        "   <msf:OrderAmount>89.97</msf:OrderAmount>\r\n" .
-        "   <msf:ScriptQ30-1 />\r\n" .
-        "   <msf:ScriptQ30-2 />\r\n" .
-        "   <msf:SequenceID />\r\n" .
-        "   <msf:DOB />\r\n" .
-        "   <msf:OtherDOB />\r\n" .
-        "   <msf:ScriptDate3 />\r\n" .
-        "   <msf:Keycode />\r\n" .
-        "   <msf:HitScreenDisp />\r\n" .
-        "   <msf:MainOfferQty>1</msf:MainOfferQty>\r\n" .
-        "   <msf:Upsell1 />\r\n" .
-        "   <msf:Upsell2 />\r\n" .
-        "   <msf:Upsell3 />\r\n" .
-        "   <msf:Upsell4 />\r\n" .
-        "   <msf:Upsell5 />\r\n" .
-        "   <msf:Upsell6 />\r\n" .
-        "   <msf:Upsell7 />\r\n" .
-        "   <msf:Upsell8 />\r\n" .
-        "   <msf:Upsell9 />\r\n" .
-        "   <msf:Upsell10 />\r\n" .
-        "   <msf:Upsell11 />\r\n" .
-        "   <msf:Upsell12 />\r\n" .
-        "   <msf:Upsell13 />\r\n" .
-        "   <msf:Upsell14>0</msf:Upsell14>\r\n" .
+        "   <omni:MediaSource>AZTCA</omni:SourceCode>\r\n" .
+        "   <omni:ProductCode>C612</omni:ProductCode>\r\n" .
+        "   <omni:ServicedCall>true</omni:ServicedCall>\r\n" .
+        "   <omni:UniqueCall>true</omni:UniqueCall>\r\n" .
+        "   <omni:OrderCall>true</omni:OrderCall>\r\n" .
+        "   <omni:CustSvcCall>false</omni:CustSvcCall>\r\n" .
+        "   <omni:MainOffer>1</omni:MainOffer>\r\n" .
+        "   <omni:Counter1>0</omni:Counter1>\r\n" .
+        "   <omni:Counter2/>\r\n" .
+        "   <omni:Counter3/>\r\n" .
+        "   <omni:Counter4/>\r\n" .
+        "   <omni:Counter5/>\r\n" .
+        "   <omni:Counter6/>\r\n" .
+        "   <omni:Counter7>103</omni:Counter7>\r\n" .
+        "   <omni:TotalRevenue>269.85</omni:TotalRevenue>" .
         "</Call>"
     );
 
@@ -103,64 +69,30 @@ namespace Dial800
             byte[] postDataBytes;
             const string userName    = "user";
             const string password    = "password";
-            const string contentType = "application/mercury.shortform";
+            const string contentType = "application/omni";
             const string postMethod  = "POST";
             const string postData    
             = @"<?xml version="1.0" encoding="utf-8" ?>
                 <Call xmlns="http://www.dial800.com/roundtrip/2011-07-15"
-                      xmlns:msf="http://www.mercurymedia.com/shortform/2011-07-15">      
+                      xmlns:omni="http://www.omnidirect.com/2011-07-15">      
                     <ANI>tel:3105555555</ANI>
                     <Target>tel:3109999999</Target>
                     <CallStart>2011-07-15T01:02:03-08:00</CallStart>
-                    <msf:ProductCode>PHD4</msf:ProductCode>
-                    <msf:MediaSource>KNBC</msf:MediaSource>
-                    <msf:CallerFirstName>John</msf:CallerFirstName>
-                    <msf:CallerMiddleName>Jerry</msf:CallerMiddleName>
-                    <msf:CallerLastName>Smith</msf:CallerLastName>
-                    <msf:CallerCity>Los Angeles</msf:CallerCity>
-                    <msf:CallerState>CA</msf:CallerState>
-                    <msf:CallerZipCode>90210</msf:CallerZipCode>
-                    <msf:OtherFirstName />
-                    <msf:OtherMiddleInitial />
-                    <msf:OtherLastName />
-                    <msf:OtherCity />
-                    <msf:OtherState />
-                    <msf:OtherZip />
-                    <msf:OtherAreaCode />
-                    <msf:OtherPhone />
-                    <msf:ScriptQ1-1 />
-                    <msf:Gender />
-                    <msf:ScriptQ1-3 />
-                    <msf:ScriptQ1-4 />
-                    <msf:InqReason />
-                    <msf:CallCode>11</msf:CallCode>
-                    <msf:ScriptQ10-2 />
-                    <msf:ScriptQ10-3 />
-                    <msf:ScriptQ10-4 />
-                    <msf:OrderAmount>89.97</msf:OrderAmount>
-                    <msf:ScriptQ30-1 />
-                    <msf:ScriptQ30-2 />
-                    <msf:SequenceID />
-                    <msf:DOB />
-                    <msf:OtherDOB />
-                    <msf:ScriptDate3 />
-                    <msf:Keycode />
-                    <msf:HitScreenDisp />
-                    <msf:MainOfferQty>1</msf:MainOfferQty>
-                    <msf:Upsell1 />
-                    <msf:Upsell2 />
-                    <msf:Upsell3 />
-                    <msf:Upsell4 />
-                    <msf:Upsell5 />
-                    <msf:Upsell6 />
-                    <msf:Upsell7 />
-                    <msf:Upsell8 />
-                    <msf:Upsell9 />
-                    <msf:Upsell10 />
-                    <msf:Upsell11 />
-                    <msf:Upsell12 />
-                    <msf:Upsell13 />
-                    <msf:Upsell14>0</msf:Upsell14>
+                    <omni:MediaSource>AZTCA</omni:SourceCode>
+                    <omni:ProductCode>C612</omni:ProductCode>
+                    <omni:ServicedCall>true</omni:ServicedCall>
+                    <omni:UniqueCall>true</omni:UniqueCall>
+                    <omni:OrderCall>true</omni:OrderCall>
+                    <omni:CustSvcCall>false</omni:CustSvcCall>
+                    <omni:MainOffer>1</omni:MainOffer>
+                    <omni:Counter1>0</omni:Counter1>
+                    <omni:Counter2/>
+                    <omni:Counter3/>
+                    <omni:Counter4/>
+                    <omni:Counter5/>
+                    <omni:Counter6/>
+                    <omni:Counter7>103</omni:Counter7>
+                    <omni:TotalRevenue>269.85</omni:TotalRevenue>
                 </Call>";
 
             const string uri = "http://roundtrip.dial800.com/roundtrip";
@@ -214,64 +146,30 @@ from requests.auth import HTTPBasicAuth
 payload = '''
 <?xml version="1.0" encoding="utf-8" ?>
 <Call xmlns="http://www.dial800.com/roundtrip/2011-07-15"
-      xmlns:msf="http://www.mercurymedia.com/shortform/2011-07-15">      
+      xmlns:omni="http://www.omnidirect.com/2011-07-15">      
     <ANI>tel:3105555555</ANI>
     <Target>tel:3109999999</Target>
     <CallStart>2011-07-15T01:02:03-08:00</CallStart>
-    <msf:ProductCode>PHD4</msf:ProductCode>
-    <msf:MediaSource>KNBC</msf:MediaSource>
-    <msf:CallerFirstName>John</msf:CallerFirstName>
-    <msf:CallerMiddleName>Jerry</msf:CallerMiddleName>
-    <msf:CallerLastName>Smith</msf:CallerLastName>
-    <msf:CallerCity>Los Angeles</msf:CallerCity>
-    <msf:CallerState>CA</msf:CallerState>
-    <msf:CallerZipCode>90210</msf:CallerZipCode>
-    <msf:OtherFirstName />
-    <msf:OtherMiddleInitial />
-    <msf:OtherLastName />
-    <msf:OtherCity />
-    <msf:OtherState />
-    <msf:OtherZip />
-    <msf:OtherAreaCode />
-    <msf:OtherPhone />
-    <msf:ScriptQ1-1 />
-    <msf:Gender />
-    <msf:ScriptQ1-3 />
-    <msf:ScriptQ1-4 />
-    <msf:InqReason />
-    <msf:CallCode>11</msf:CallCode>
-    <msf:ScriptQ10-2 />
-    <msf:ScriptQ10-3 />
-    <msf:ScriptQ10-4 />
-    <msf:OrderAmount>89.97</msf:OrderAmount>
-    <msf:ScriptQ30-1 />
-    <msf:ScriptQ30-2 />
-    <msf:SequenceID />
-    <msf:DOB />
-    <msf:OtherDOB />
-    <msf:ScriptDate3 />
-    <msf:Keycode />
-    <msf:HitScreenDisp />
-    <msf:MainOfferQty>1</msf:MainOfferQty>
-    <msf:Upsell1 />
-    <msf:Upsell2 />
-    <msf:Upsell3 />
-    <msf:Upsell4 />
-    <msf:Upsell5 />
-    <msf:Upsell6 />
-    <msf:Upsell7 />
-    <msf:Upsell8 />
-    <msf:Upsell9 />
-    <msf:Upsell10 />
-    <msf:Upsell11 />
-    <msf:Upsell12 />
-    <msf:Upsell13 />
-    <msf:Upsell14>0</msf:Upsell14>
+    <omni:MediaSource>AZTCA</omni:SourceCode>
+    <omni:ProductCode>C612</omni:ProductCode>
+    <omni:ServicedCall>true</omni:ServicedCall>
+    <omni:UniqueCall>true</omni:UniqueCall>
+    <omni:OrderCall>true</omni:OrderCall>
+    <omni:CustSvcCall>false</omni:CustSvcCall>
+    <omni:MainOffer>1</omni:MainOffer>
+    <omni:Counter1>0</omni:Counter1>
+    <omni:Counter2/>
+    <omni:Counter3/>
+    <omni:Counter4/>
+    <omni:Counter5/>
+    <omni:Counter6/>
+    <omni:Counter7>103</omni:Counter7>
+    <omni:TotalRevenue>269.85</omni:TotalRevenue>
 </Call>
 '''
 r = request.post('http://routing.dial800.com/routing',
                  auth=HTTPBasicAuth('user','password'),
-                 headers={'content-type': 'application/mercury.shortform'},
+                 headers={'content-type': 'application/omni'},
                  data=payload)
 ```
 
@@ -287,7 +185,7 @@ http         = Net::HTTP.new(uri.host, uri.port)
 request      = Net::HTTP::Post.new(uri.host,uri.port)
 request.body = xml_string
 request.basic_auth("user","password")
-request.content_type = "application/mercury.shortform"
+request.content_type = "application/omni"
 response     = http.request(request)
 ```
 
@@ -301,65 +199,31 @@ response     = http.request(request)
 
 ```
 POST /calls
-Content-Type: application/mercury.shortform
+Content-Type: application/omni
 ```
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <Call xmlns="http://www.dial800.com/roundtrip/2011-07-15"
-      xmlns:msf="http://www.mercurymedia.com/shortform/2011-07-15">      
+      xmlns:omni="http://www.omnidirect.com/2011-07-15">      
     <ANI>tel:3105555555</ANI>
     <Target>tel:3109999999</Target>
     <CallStart>2011-07-15T01:02:03-08:00</CallStart>
-    <msf:ProductCode>PHD4</msf:ProductCode>
-    <msf:MediaSource>TV</msf:MediaSource>
-    <msf:CallerFirstName>John</msf:CallerFirstName>
-    <msf:CallerMiddleName>Jerry</msf:CallerMiddleName>
-    <msf:CallerLastName>Smith</msf:CallerLastName>
-    <msf:CallerCity>Los Angeles</msf:CallerCity>
-    <msf:CallerState>CA</msf:CallerState>
-    <msf:CallerZipCode>90210</msf:CallerZipCode>
-    <msf:OtherFirstName />
-    <msf:OtherMiddleInitial />
-    <msf:OtherLastName />
-    <msf:OtherCity />
-    <msf:OtherState />
-    <msf:OtherZip />
-    <msf:OtherAreaCode />
-    <msf:OtherPhone />
-    <msf:ScriptQ1-1 />
-    <msf:Gender />
-    <msf:ScriptQ1-3 />
-    <msf:ScriptQ1-4 />
-    <msf:InqReason />
-    <msf:CallCode>11</msf:CallCode>
-    <msf:ScriptQ10-2 />
-    <msf:ScriptQ10-3 />
-    <msf:ScriptQ10-4 />
-    <msf:OrderAmount>89.97</msf:OrderAmount>
-    <msf:ScriptQ30-1 />
-    <msf:ScriptQ30-2 />
-    <msf:SequenceID />
-    <msf:DOB />
-    <msf:OtherDOB />
-    <msf:ScriptDate3 />
-    <msf:Keycode />
-    <msf:HitScreenDisp />
-    <msf:MainOfferQty>1</msf:MainOfferQty>
-    <msf:Upsell1 />
-    <msf:Upsell2 />
-    <msf:Upsell3 />
-    <msf:Upsell4 />
-    <msf:Upsell5 />
-    <msf:Upsell6 />
-    <msf:Upsell7 />
-    <msf:Upsell8 />
-    <msf:Upsell9 />
-    <msf:Upsell10 />
-    <msf:Upsell11 />
-    <msf:Upsell12 />
-    <msf:Upsell13 />
-    <msf:Upsell14 />
+    <omni:MediaSource>AZTCA</omni:SourceCode>
+    <omni:ProductCode>C612</omni:ProductCode>
+    <omni:ServicedCall>true</omni:ServicedCall>
+    <omni:UniqueCall>true</omni:UniqueCall>
+    <omni:OrderCall>true</omni:OrderCall>
+    <omni:CustSvcCall>false</omni:CustSvcCall>
+    <omni:MainOffer>1</omni:MainOffer>
+    <omni:Counter1>0</omni:Counter1>
+    <omni:Counter2/>
+    <omni:Counter3/>
+    <omni:Counter4/>
+    <omni:Counter5/>
+    <omni:Counter6/>
+    <omni:Counter7>103</omni:Counter7>
+    <omni:TotalRevenue>269.85</omni:TotalRevenue>
 </Call>
 ```
 
@@ -382,63 +246,29 @@ No match for the call.
 
 ```
 PUT /calls
-Content-Type: application/mercury.shortform
+Content-Type: application/omni
 ```
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <Call xmlns="http://www.dial800.com/roundtrip/2011-07-15"
-      xmlns:msf="http://www.mercurymedia.com/shortform/2011-07-15">      
+      xmlns:msf="http://www.omnidirect.com/2011-07-15">      
     <ID>12345678990</ID>
-    <msf:ProductCode>PHD4</msf:ProductCode>
-    <msf:MediaSource>TV</msf:MediaSource>
-    <msf:CallerFirstName>John</msf:CallerFirstName>
-    <msf:CallerMiddleName>Jerry</msf:CallerMiddleName>
-    <msf:CallerLastName>Smith</msf:CallerLastName>
-    <msf:CallerCity>Los Angeles</msf:CallerCity>
-    <msf:CallerState>CA</msf:CallerState>
-    <msf:CallerZipCode>90210</msf:CallerZipCode>
-    <msf:OtherFirstName />
-    <msf:OtherMiddleInitial />
-    <msf:OtherLastName />
-    <msf:OtherCity />
-    <msf:OtherState />
-    <msf:OtherZip />
-    <msf:OtherAreaCode />
-    <msf:OtherPhone />
-    <msf:ScriptQ1-1 />
-    <msf:Gender />
-    <msf:ScriptQ1-3 />
-    <msf:ScriptQ1-4 />
-    <msf:InqReason />
-    <msf:CallCode>11</msf:CallCode>
-    <msf:ScriptQ10-2 />
-    <msf:ScriptQ10-3 />
-    <msf:ScriptQ10-4 />
-    <msf:OrderAmount>89.97</msf:OrderAmount>
-    <msf:ScriptQ30-1 />
-    <msf:ScriptQ30-2 />
-    <msf:SequenceID />
-    <msf:DOB />
-    <msf:OtherDOB />
-    <msf:ScriptDate3 />
-    <msf:Keycode />
-    <msf:HitScreenDisp />
-    <msf:MainOfferQty>1</msf:MainOfferQty>
-    <msf:Upsell1 />
-    <msf:Upsell2 />
-    <msf:Upsell3 />
-    <msf:Upsell4 />
-    <msf:Upsell5 />
-    <msf:Upsell6 />
-    <msf:Upsell7 />
-    <msf:Upsell8 />
-    <msf:Upsell9 />
-    <msf:Upsell10 />
-    <msf:Upsell11 />
-    <msf:Upsell12 />
-    <msf:Upsell13 />
-    <msf:Upsell14 />
+    <omni:MediaSource>AZTCA</omni:SourceCode>
+    <omni:ProductCode>C612</omni:ProductCode>
+    <omni:ServicedCall>true</omni:ServicedCall>
+    <omni:UniqueCall>true</omni:UniqueCall>
+    <omni:OrderCall>true</omni:OrderCall>
+    <omni:CustSvcCall>false</omni:CustSvcCall>
+    <omni:MainOffer>1</omni:MainOffer>
+    <omni:Counter1>0</omni:Counter1>
+    <omni:Counter2/>
+    <omni:Counter3/>
+    <omni:Counter4/>
+    <omni:Counter5/>
+    <omni:Counter6/>
+    <omni:Counter7>103</omni:Counter7>
+    <omni:TotalRevenue>269.85</omni:TotalRevenue>
 </Call>
 ```
 
@@ -474,153 +304,50 @@ No match for the call.
     <dt>CallStart</dt>
     <dd>The Call Start Time representing when this call was initiated. This value must be expressed using the standard XML DateTime format which includes the timezone offset identifier(i.e. “YYYY-MM-DDThh:mm:ss±HH:MM” or “YYYY-MM-DDThh:mm:ssZ”). (The "&lt;CallStart&gt;" element may optionally be passed if the “&lt;ID&gt;” element is absent.) Optional.</dd>
     
-    <dt>ProductCode</dt>
-    <dd>Product Code (per Mercury setup sheet) to be associated with the call. Required.</dd>
-    
     <dt>MediaSource</dt>
-    <dd>Media Source identifying the source of the telephone call. Often a set of call letters (i.e. “KABC”, “KROQ”, etc.) Required.</dd>
+    <dd>The Media Source (Station Call Letters) associated with this call. Required.</dd>
     
-    <dt>CallerFirstName</dt>
-    <dd>The first name of the caller, if known. Optional.</dd>
+    <dt>ProductCode</dt>
+    <dd>Product Code (per campaign setup sheet) to be associated with the call. Required.</dd>
     
-    <dt>CallerMiddleName</dt>
-    <dd>The middle name of the caller, if known. Optional.</dd>
+    <dt>ServicedCall</dt>
+    <dd>Serviced Call Indicator/Flag. Required.</dd>
     
-    <dt>CallerLastName</dt>
-    <dd>The last name of the caller, if known. Optional.</dd>
+    <dt>UniqueCall</dt>
+    <dd>Unique Call Indicator/Flag. Required.</dd>
     
-    <dt>CallerCity</dt>
-    <dd>The City of the caller. Required.</dd>
+    <dt>OrderCall</dt>
+    <dd>Order Call Indicator/Flag. Required.</dd>
     
-    <dt>CallerState</dt>
-    <dd>The State of the caller. Required.</dd>
+    <dt>CustSvcCall</dt>
+    <dd>Customer Service Call Indicator/Flag. Required.</dd>
     
-    <dt>CallerZipCode</dt>
-    <dd>The ZIP Code of the caller. Required.</dd>
+    <dt>MainOffer</dt>
+    <dd>Main Offer Counter (numeric). Required.</dd>
     
-    <dt>OtherFirstName</dt>
-    <dd>An alernative first name of the caller, if known. (Generally Not Used). Optional.</dd>
+    <dt>Counter1</dt>
+    <dd>Upsell Counter #1 (numeric) to be associated with the call. Optional.</dd>
     
-    <dt>OtherMiddleInitial</dt>
-    <dd>An Alternative middle name of the caller, if known. (Generally Not Used). Optional.</dd>
+    <dt>Counter2</dt>
+    <dd>Upsell Counter #2 (numeric) to be associated with the call. Optional.</dd>
     
-    <dt>OtherLastName</dt>
-    <dd>An alternative last name of the caller, if known. (Generally Not Used). Optional.</dd>
+    <dt>Counter3</dt>
+    <dd>Upsell Counter #3 (numeric) to be associated with the call. Optional.</dd>
     
-    <dt>OtherCity</dt>
-    <dd>An alternative city of the caller, if known. (Generally Not Used). Optional.</dd>
+    <dt>Counter4</dt>
+    <dd>Upsell Counter #4 (numeric) to be associated with the call. Optional.</dd>
     
-    <dt>OtherState</dt>
-    <dd>An alternative state of the caller, if known. (Generally Not Used). Optional.</dd>
+    <dt>Counter5</dt>
+    <dd>Upsell Counter #5 (numeric) to be associated with the call. Optional.</dd>
     
-    <dt>OtherZip</dt>
-    <dd>An alternative ZIP code of the caller, if known. (Generally Not Used). Optional.</dd>
+    <dt>Counter6</dt>
+    <dd>Upsell Counter #6 (numeric) to be associated with the call. Optional.</dd>
     
-    <dt>OtherAreaCode</dt>
-    <dd>An alternative area code of the caller, if known. (Generally Not Used). Optional.</dd>
+    <dt>Counter7</dt>
+    <dd>Upsell Counter #7 (numeric) to be associated with the call. If this counter is not otherwise allocated, may be used for Script ID. Optional.</dd>
     
-    <dt>OtherPhone</dt>
-    <dd>An alternative phone number of the caller, if known. (Generally Not Used). Optional.</dd>
-    
-    <dt>ScriptQ1-1</dt>
-    <dd>An alternative phone number of the caller, if known. (Generally Not Used). Optional.</dd>
-    
-    <dt>Gender</dt>
-    <dd>Gender (M/F) of the caller, if known. (Generally Not Used). Optional.</dd>
-    
-    <dt>ScriptQ1-3</dt>
-    <dd>Response to Script Question #1-3, if captured. (Generally Not Used). Optional.</dd>
-    
-    <dt>ScriptQ1-4</dt>
-    <dd>Response to Script Question #1-4, if captured. (Generally Not Used). Optional.</dd>
-    
-    <dt>InqReason</dt>
-    <dd>Inquiry Reason (per Mercury setup sheet) (Generally Not Used). Optional.</dd>
-    
-    <dt>CallCode</dt>
-    <dd>Call Code (per Mercury setup sheet). Required.</dd>
-    
-    <dt>ScriptQ10-2</dt>
-    <dd>Response to Script Question #10-2, if captured. (Generally Not Used). Optional.</dd>
-    
-    <dt>ScriptQ10-3</dt>
-    <dd>Response to Script Question #10-3, if captured. (Generally Not Used). Optional.</dd>
-    
-    <dt>ScriptQ10-4</dt>
-    <dd>Response to Script Question #10-4, if captured. (Generally Not Used). Optional.</dd>
-    
-    <dt>OrderAmount</dt>
-    <dd>Order Amount, representing the *TOTAL* order value. Required.</dd>
-    
-    <dt>ScriptQ30-1</dt>
-    <dd>Response to Script Question #30-1, if captured. (Generally Not Used). Optional.</dd>
-    
-    <dt>ScriptQ30-2</dt>
-    <dd>Response to Script Question #30-2, if captured. (Generally Not Used). Optional.</dd>
-    
-    <dt>SequenceID</dt>
-    <dd>Sequence ID if known (Generally Not Used). Optional.</dd>
-    
-    <dt>DOB</dt>
-    <dd>Date Of Birth (of caller) if known. (Generally Not Used). Optional.</dd>
-    
-    <dt>OtherDOB</dt>
-    <dd>Alternate Date Of Birth (of caller) if known. (Generally Not Used). Optional.</dd>
-    
-    <dt>ScriptDate3</dt>
-    <dd>Script Date #3 (Generally Not Used). Optional.</dd>
-    
-    <dt>Keycode</dt>
-    <dd>Keycode (Generally Not Used). Optional.</dd>
-    
-    <dt>HitScreenDisp</dt>
-    <dd>Hit Screen/Disposition. (Generally Not Used). Optional.</dd>
-    
-    <dt>MainOfferQty</dt>
-    <dd>Main Offer Quantity Sold. Integer value. Required.</dd>
-    
-    <dt>Upsell1</dt>
-    <dd>Upsell #1 Quantity Sold, if used. Integer value. Optional.</dd>
-    
-    <dt>Upsell2</dt>
-    <dd>Upsell #2 Quantity Sold, if used. Integer value. Optional.</dd>
-    
-    <dt>Upsell3</dt>
-    <dd>Upsell #3 Quantity Sold, if used. Integer value. Optional.</dd>
-    
-    <dt>Upsell4</dt>
-    <dd>Upsell #4 Quantity Sold, if used. Integer value. Optional.</dd>
-    
-    <dt>Upsell5</dt>
-    <dd>Upsell #5 Quantity Sold, if used. Integer value. Optional.</dd>
-    
-    <dt>Upsell6</dt>
-    <dd>Upsell #6 Quantity Sold, if used. Integer value. Optional.</dd>
-    
-    <dt>Upsell7</dt>
-    <dd>Upsell #7 Quantity Sold, if used. Integer value. Optional.</dd>
-    
-    <dt>Upsell8</dt>
-    <dd>Upsell #8 Quantity Sold, if used. Integer value. Optional.</dd>
-    
-    <dt>Upsell9</dt>
-    <dd>Upsell #9 Quantity Sold, if used. Integer value. Optional.</dd>
-    
-    <dt>Upsell10</dt>
-    <dd>Upsell #10 Quantity Sold, if used. Integer value. Optional.</dd>
-    
-    <dt>Upsell11</dt>
-    <dd>Upsell #11 Quantity Sold, if used. Integer value. Optional.</dd>
-    
-    <dt>Upsell12</dt>
-    <dd>Upsell #12 Quantity Sold, if used. Integer value. Optional.</dd>
-    
-    <dt>Upsell13</dt>
-    <dd>Upsell #13 Quantity Sold, if used. Integer value. Optional.</dd>
-    
-    <dt>Upsell14</dt>
-    <dd>Upsell #14 Quantity Sold, if used, or "0". Integer value. Must be populated for transmission integrity check. Required.</dd>
-
+    <dt>TotalRevenue</dt>
+    <dd>Total Revenue reported for this call. Optional.</dd>
 </dl>
 
 ## Other Integrations
