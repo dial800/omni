@@ -16,7 +16,7 @@ We know. You have two days to integrate with us. Don't worry, it's easy. We're h
 
 # 1. Generate Payload
 
-$request = new HTTP_Request2('http://routing.dial800.com/roundtrip');
+$request = new HTTP_Request2('http://roundtrip.dial800.com/roundtrip');
 $request->setMethod(HTTP_Request2::METHOD_POST)
     ->setAuth('user','password', HTTP_Request2::AUTH_BASIC)
     ->setHeader('Content-Type: application/omni')
@@ -27,7 +27,7 @@ $request->setMethod(HTTP_Request2::METHOD_POST)
         "   <ANI>tel:3105555555</ANI>\r\n" .
         "   <Target>tel:3109999999</Target>\r\n" . 
         "   <CallStart>2011-07-15T01:02:03-08:00</CallStart>\r\n" .
-        "   <omni:MediaSource>AZTCA</omni:SourceCode>\r\n" .
+        "   <omni:MediaSource>AZTCA</omni:MediaSource>\r\n" .
         "   <omni:ProductCode>C612</omni:ProductCode>\r\n" .
         "   <omni:ServicedCall>true</omni:ServicedCall>\r\n" .
         "   <omni:UniqueCall>true</omni:UniqueCall>\r\n" .
@@ -66,43 +66,40 @@ namespace Dial800
     {
         static void Main(string[] args)
         {
-            byte[] postDataBytes;
-            const string userName    = "user";
-            const string password    = "password";
+            const string userName = "USER";
+            const string password = "PASSWORD";
             const string contentType = "application/omni";
-            const string postMethod  = "POST";
-            const string postData    
-            = @"<?xml version="1.0" encoding="utf-8" ?>
-                <Call xmlns="http://www.dial800.com/roundtrip/2011-07-15"
-                      xmlns:omni="http://www.omnidirect.com/2011-07-15">      
-                    <ANI>tel:3105555555</ANI>
-                    <Target>tel:3109999999</Target>
-                    <CallStart>2011-07-15T01:02:03-08:00</CallStart>
-                    <omni:MediaSource>AZTCA</omni:SourceCode>
-                    <omni:ProductCode>C612</omni:ProductCode>
-                    <omni:ServicedCall>true</omni:ServicedCall>
-                    <omni:UniqueCall>true</omni:UniqueCall>
-                    <omni:OrderCall>true</omni:OrderCall>
-                    <omni:CustSvcCall>false</omni:CustSvcCall>
-                    <omni:MainOffer>1</omni:MainOffer>
-                    <omni:Counter1>0</omni:Counter1>
-                    <omni:Counter2/>
-                    <omni:Counter3/>
-                    <omni:Counter4/>
-                    <omni:Counter5/>
-                    <omni:Counter6/>
-                    <omni:Counter7>103</omni:Counter7>
-                    <omni:TotalRevenue>269.85</omni:TotalRevenue>
-                </Call>";
+            const string postMethod = "POST";
+            string postData = @"<?xml version='1.0' encoding='utf-8' ?>
+                                <Call xmlns='http://www.dial800.com/roundtrip/2011-07-15'
+                                     xmlns:omni='http://www.omnidirect.com/2012-04-01'>
+                                  <ANI>tel:3105555555</ANI>
+                                  <Target>tel:3109999999</Target>
+                                  <CallStart>2011-07-15T01:02:03-08:00</CallStart>
+                                  <omni:MediaSource>AZTCA</omni:MediaSource>
+                                  <omni:ProductCode>C612</omni:ProductCode>
+                                  <omni:ServicedCall>true</omni:ServicedCall>
+                                  <omni:UniqueCall>true</omni:UniqueCall>
+                                  <omni:OrderCall>true</omni:OrderCall>
+                                  <omni:CustSvcCall>false</omni:CustSvcCall>
+                                  <omni:MainOffer>1</omni:MainOffer>
+                                  <omni:Counter1>0</omni:Counter1>
+                                  <omni:Counter2/>\r\n<omni:Counter3/>
+                                  <omni:Counter4/>\r\n<omni:Counter5/>
+                                  <omni:Counter6/>
+                                  <omni:Counter7>103</omni:Counter7>
+                                  <omni:TotalRevenue>269.85</omni:TotalRevenue>
+                                </Call>";
 
             const string uri = "http://roundtrip.dial800.com/roundtrip";
 
-            postDataBytes = Encoding.UTF8.GetBytes( postData );
+            var postDataBytes = Encoding.UTF8.GetBytes( postData );
 
             var urlEndpoint = new Uri(uri);
             var request = WebRequest.Create( urlEndpoint ) as HttpWebRequest;
 
-            request.Credentials   = new NetworkCredential( userName, password );
+            request.Headers.Add(HttpRequestHeader.Authorization,
+                                "Basic " + Convert.ToBase64String(Encoding.ASCII.GetBytes(userName + ":" + password)));
             request.Method        = postMethod;
             request.ContentType   = contentType;
             request.ContentLength = postDataBytes.Length;
@@ -127,9 +124,10 @@ namespace Dial800
                     using (HttpWebResponse errorResponse = (HttpWebResponse)ex.Response)
                     {
                         Console.WriteLine(
-                            "The server returned '{0}' with the status code {1} ({2:d}).",
-                            errorResponse.StatusDescription, errorResponse.StatusCode,
-                            errorResponse.StatusCode);
+                            "The server returned:\n {2} \nwith the status code {1}: {0}",
+                            errorResponse.StatusDescription,
+                            errorResponse.StatusCode,
+                            new StreamReader(errorResponse.GetResponseStream()).ReadToEnd());
                     }
                 }
             }
@@ -146,11 +144,11 @@ from requests.auth import HTTPBasicAuth
 payload = '''
 <?xml version="1.0" encoding="utf-8" ?>
 <Call xmlns="http://www.dial800.com/roundtrip/2011-07-15"
-      xmlns:omni="http://www.omnidirect.com/2011-07-15">      
+      xmlns:omni="http://www.omnidirect.com/2012-04-01">      
     <ANI>tel:3105555555</ANI>
     <Target>tel:3109999999</Target>
     <CallStart>2011-07-15T01:02:03-08:00</CallStart>
-    <omni:MediaSource>AZTCA</omni:SourceCode>
+    <omni:MediaSource>AZTCA</omni:MediaSource>
     <omni:ProductCode>C612</omni:ProductCode>
     <omni:ServicedCall>true</omni:ServicedCall>
     <omni:UniqueCall>true</omni:UniqueCall>
@@ -179,7 +177,7 @@ r = request.post('http://routing.dial800.com/routing',
 require "net/http"
 require "uri"
 
-uri = URI.parse("http://routing.dial800.com/routing")
+uri = URI.parse("http://roundtrip.dial800.com/routing")
 
 http         = Net::HTTP.new(uri.host, uri.port)
 request      = Net::HTTP::Post.new(uri.host,uri.port)
@@ -205,11 +203,11 @@ Content-Type: application/omni
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <Call xmlns="http://www.dial800.com/roundtrip/2011-07-15"
-      xmlns:omni="http://www.omnidirect.com/2011-07-15">      
+      xmlns:omni="http://www.omnidirect.com/2012-04-01">      
     <ANI>tel:3105555555</ANI>
     <Target>tel:3109999999</Target>
     <CallStart>2011-07-15T01:02:03-08:00</CallStart>
-    <omni:MediaSource>AZTCA</omni:SourceCode>
+    <omni:MediaSource>AZTCA</omni:MediaSource>
     <omni:ProductCode>C612</omni:ProductCode>
     <omni:ServicedCall>true</omni:ServicedCall>
     <omni:UniqueCall>true</omni:UniqueCall>
@@ -252,9 +250,9 @@ Content-Type: application/omni
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <Call xmlns="http://www.dial800.com/roundtrip/2011-07-15"
-      xmlns:msf="http://www.omnidirect.com/2011-07-15">      
+      xmlns:msf="http://www.omnidirect.com/2012-04-01">      
     <ID>12345678990</ID>
-    <omni:MediaSource>AZTCA</omni:SourceCode>
+    <omni:MediaSource>AZTCA</omni:MediaSource>
     <omni:ProductCode>C612</omni:ProductCode>
     <omni:ServicedCall>true</omni:ServicedCall>
     <omni:UniqueCall>true</omni:UniqueCall>
