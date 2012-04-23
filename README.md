@@ -191,6 +191,39 @@ response     = http.request(request)
 
 ### Authentication
 
+All web services defined herein will communicate via a regular “HTTP://” protocol.
+
+All web services defined herein will support basic HTTP authentication, with a base-64 encoded UserName & Password. Custom headers are not to be used for authentication purposes.
+
+For existing CallView users, their existing ID & Password may be used to gain full, unrestricted access to call data via these services.
+
+For Call Centers servicing CallView clients, they will be issued a “restricted” set of credentials that allows them to post call sales data for calls which they have received & processed.
+
+### Endpoints
+
+The test/staging endpoint where these services will be available at is:
+
+http://stage-api.roundtrip.dial800.com/roundtrip
+
+The production endpoint where these services will be available at is:
+
+http://roundtrip.dial800.com/roundtrip
+
+### Timing
+
+RT2 data submissions are performed on a synchronous basis, and will attempt to match the data submitted  to a call in the CallView databases, and will return an HTTP status code as part of the response indicating success or failure of the matching & data posting process.
+
+Consequently, call sales data submitted via the RT2 API must be submitted AFTER the call is completed and the basic call data has been inserted into the CallView databases. In many cases, the call data will be available within CallView 5-10 seconds after the call is terminated. In some cases, there may be a delay as long as 10-15 minutes before the call data becomes available.
+
+Any party attempting to submit RT2 data via this API must implement their submission code to accommodate the possibility that the target call data is not yet available within the system, detecting potential “Call Not Found” return codes, and waiting/delaying/queuing the RT2 API request for retry at a later time.
+
+PLEASE NOTE: Dial800 begins nightly batch processing of data exports at 2am PT, which means all data submissions intended for extraction & reporting to a media agency or other external party must be completed prior to that time.
+
+### Telephone Number Formatting
+
+All Telephone numbers within this API will be formatted according to http://tools.ietf.org/html/rfc3966. However, at this time, Dial800 will only be supporting us-based (NANPA) telephone number formats; International number formats will be supported at a future time.
+
+
 ### POST
 
 #### Request
@@ -286,6 +319,8 @@ No match for the call.
 ```
 
 ## Glossary
+
+### Core Fields
 <dl>
     <dt>ID</dt>
     <dd>String value representing the alphanumeric Call ID of the phone call to be matched for the associated Sales data. (The “&lt;ID&gt;” element must always be passed on its own or an error will be issued.) Optional.</dd>
@@ -301,7 +336,10 @@ No match for the call.
     
     <dt>CallStart</dt>
     <dd>The Call Start Time representing when this call was initiated. This value must be expressed using the standard XML DateTime format which includes the timezone offset identifier(i.e. “YYYY-MM-DDThh:mm:ss±HH:MM” or “YYYY-MM-DDThh:mm:ssZ”). (The "&lt;CallStart&gt;" element may optionally be passed if the “&lt;ID&gt;” element is absent.) Optional.</dd>
-    
+</dl>
+
+### Required Fields
+<dl>
     <dt>MediaSource</dt>
     <dd>The Media Source (Station Call Letters) associated with this call. Required.</dd>
     
@@ -322,6 +360,10 @@ No match for the call.
     
     <dt>MainOffer</dt>
     <dd>Main Offer Counter (numeric). Required.</dd>
+</dl>
+
+### Optional Fields
+<dl>
     
     <dt>Counter1</dt>
     <dd>Upsell Counter #1 (numeric) to be associated with the call. Optional.</dd>
