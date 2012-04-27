@@ -165,7 +165,7 @@ payload = '''
     <omni:TotalRevenue>269.85</omni:TotalRevenue>
 </Call>
 '''
-r = request.post('http://routing.dial800.com/routing',
+r = request.post('http://roundtrip.dial800.com/roundtrip',
                  auth=HTTPBasicAuth('user','password'),
                  headers={'Content-Type': 'application/omni'},
                  data=payload)
@@ -177,7 +177,7 @@ r = request.post('http://routing.dial800.com/routing',
 require "net/http"
 require "uri"
 
-uri = URI.parse("http://roundtrip.dial800.com/routing")
+uri = URI.parse("http://roundtrip.dial800.com/roundtrip")
 
 http         = Net::HTTP.new(uri.host, uri.port)
 request      = Net::HTTP::Post.new(uri.host,uri.port)
